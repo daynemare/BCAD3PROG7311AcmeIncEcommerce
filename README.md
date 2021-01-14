@@ -18,6 +18,7 @@ Installation/Run Guide
 4.	Click the green play button. The website should now begin to run on the selected internet browser of your workstation. 
 
 Demo User Account Information
+
 **When demonstrating the website, the user should use the following demo accounts***
 User Role Administrator (ACME employed user)
 There is only one Administrator assigned account at this time for the purpose of the proposal. Therefore, it is important that this account is used to demonstrate administrator functionality.  
