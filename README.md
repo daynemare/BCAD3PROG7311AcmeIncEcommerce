@@ -82,6 +82,6 @@ Development Tools
 •	ADO.Net - Entity Framework(Database scaffolding and other database services).
 
 Author
-Dayne Mare` - 18002054
+Dayne Mare` 
 
 Additional documentation for this project is provided in the repository via the "Documentation" pdf file. A pdf viewer will be required to view this file type. 
