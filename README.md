@@ -20,14 +20,18 @@ Installation/Run Guide
 Demo User Account Information
 
 **When demonstrating the website, the user should use the following demo accounts***
+
 User Role Administrator (ACME employed user)
+
 There is only one Administrator assigned account at this time for the purpose of the proposal. Therefore, it is important that this account is used to demonstrate administrator functionality.  
 
 Username: admin@acme.com
 Password: Acme@Admin1
 
 User Role Customer (non-employed user)
+
 Either of these accounts can be used to demonstrate functionality assigned to the customer role. However, a new user of can also be registered through the register page of the website to gain access to customer functionality (See user manual section).
+
 1.	Username: joe@examplecustomer.com
 Password: Example@Customer1
 
@@ -68,7 +72,9 @@ User Name				DESKTOP-3F3DGS8\Dayne
 Time Zone				South Africa Standard Time
 Installed Physical Memory (RAM)		8,00 GB
 Total Physical Memory			7,45 GB
+
 Development Tools
+
 •	Visual Studio (IDE) 
 •	C# .Net framework 4.6.1 (Written in).
 •	Model-View-Controller(Design Pattern).
