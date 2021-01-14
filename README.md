@@ -1,23 +1,25 @@
 # BCAD3PROG7311AcmeIncEcommerce
 An Ecommerce Web application written in C# ASP.NET  MVC that I developed as part of the Portfolio of Evidence for my PROG7311 programming module in my last year of my BCAD Degree at Varsity College in 2020. 
 
-Project Name
+# Project Name
+
  ACME Music Store
-Version
+ 
+# Version
  1.4
-Description
+# Description
 ACME Music Store is a prototype developed to be demonstrated at a project proposal for ACME Inc’s new e-commerce website. 
 
-Project Run Requirements
+# Project Run Requirements
 1.	Install the latest version of Visual Studio 2017 or 2019 IDE.
 
-Installation/Run Guide
+# Installation/Run Guide
 1.	Navigate to the prototype project folder titled “AcmeIncEcommerce”
 2.	Double click on the AcmeInceEcommerce.sln Visual Studio Solution file which should open the project solution in Visual Studio.
 3.	Once the project solution has loaded click the drop down by the green run application play button and select ISS Express.
 4.	Click the green play button. The website should now begin to run on the selected internet browser of your workstation. 
 
-Demo User Account Information
+# Demo User Account Information
 
 **When demonstrating the website, the user should use the following demo accounts***
 
@@ -42,7 +44,7 @@ Password: Example@Customer2
 Password: Example@Customer3
 
 
-PC used for Prototype Development and Testing
+# PC used for Prototype Development and Testing
 
 OS Name					Microsoft Windows 10 Home
 Version					10.0.18363 Build 18363
@@ -74,14 +76,14 @@ Time Zone				South Africa Standard Time
 Installed Physical Memory (RAM)		8,00 GB
 Total Physical Memory			7,45 GB
 
-Development Tools
+# Development Tools
 
 •	Visual Studio (IDE) 
 •	C# .Net framework 4.6.1 (Written in).
 •	Model-View-Controller(Design Pattern).
 •	ADO.Net - Entity Framework(Database scaffolding and other database services).
 
-Author
+# Author
 Dayne Mare` 
 
 Additional documentation for this project is provided in the repository via the "Documentation" pdf file. A pdf viewer will be required to view this file type. 
