@@ -86,4 +86,5 @@ Total Physical Memory			7,45 GB
 # Author
 Dayne Mare` 
 
-Additional documentation for this project is provided in the repository via the "Documentation" pdf file. A pdf viewer will be required to view this file type. 
+# Note
+Additional documentation for this project is provided in the repository via the "Documentation" pdf file. This can be viewed in GitHub by clicking the file.  
