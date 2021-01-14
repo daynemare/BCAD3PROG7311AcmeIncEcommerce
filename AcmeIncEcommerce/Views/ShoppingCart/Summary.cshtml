@@ -1,0 +1,8 @@
+﻿@model AcmeIncEcommerce.Models.ShoppingCartSummaryViewModel
+
+<ul class="nav navbar-nav navbar-right">
+    <li>
+        @Html.ActionLink("Your Shopping Cart: " + Model.NumberOfItems + " item(s) " +
+            HttpUtility.HtmlDecode(Html.DisplayFor(model => Model.TotalCost).ToString()), "Index", "ShoppingCart")
+    </li>
+</ul>

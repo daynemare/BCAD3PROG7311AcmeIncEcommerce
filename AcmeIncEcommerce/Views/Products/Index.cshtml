@@ -1,0 +1,155 @@
+﻿@model  AcmeIncEcommerce.Models.ProductIndexViewModel
+@using PagedList.Mvc
+
+@{
+    ViewBag.Title = "Music Products";
+}
+
+    <div class="jumbotron" style="margin-top:40px;">
+        <div style="float:left">
+            <h2 style="margin-top: -20px;">@ViewBag.Title</h2>
+
+            @if (this.User.IsInRole("Customer") || this.User.IsInRole("Administrator"))
+            {
+
+            }
+            else
+            {
+                <h4 style="color:deepskyblue;"> Login is required to begin adding items to your shopping cart!</h4>
+            }
+
+
+            <p>
+                @(String.IsNullOrWhiteSpace(Model.Search) ? "Showing all" : "You search for " + Model.Search + " found")  @Model.Products.TotalItemCount products
+                <br />
+                @if (Request.IsAuthenticated && User.IsInRole("Administrator"))
+                {
+                    @Html.ActionLink("Create New", "Create")
+                }
+            </p>
+        </div>
+       
+        <div style="float:right; margin-top: -30px;" >
+
+            <p>
+                <div style="float:left; padding-right:60px;">
+                    <label>Filter by category:</label>
+
+                </div>
+                <div style="float:left;">
+                    <label>Sort by Price :</label>
+
+                </div>
+                <br />
+            </p>
+
+            <p>
+
+                @using (Html.BeginRouteForm("ProductsIndex", FormMethod.Get))
+                {
+
+                    <div style="float:left">
+
+                        @Html.DropDownListFor(vm => vm.Category, Model.CatFilterItems, "All", new { @class = "form-control" })
+                    </div>
+                    <div style="float:left">
+
+                        @Html.DropDownListFor(vm => vm.SortBy, new SelectList(Model.Sorts, "Value", "Key"), "Default", new { @class = "form-control" })
+                    </div>
+
+                    <div style="float:left">
+
+                        <input type="submit" value="Filter" class="btn btn-primary" />
+                        <input type="hidden" name="Search" id="Search" value="@Model.Search" />
+
+                    </div>
+
+                }
+
+            </p>
+        </div>
+      
+
+        <table class="table table-striped table-hover " style="margin-top:75px">
+            <tr class="info">
+
+                <th class="col-md-2">
+
+                    @Html.DisplayNameFor(model => model.Products.First().ProductName)
+
+                </th>
+                <th class="col-md-2">
+                    @Html.DisplayNameFor(model => model.Category)
+                </th>
+                <th class="col-md-2">
+                    @Html.DisplayNameFor(model => model.Products.First().ProductDescription)
+                </th>
+                <th class="col-md-2">
+                    @Html.DisplayNameFor(model => model.Products.First().ProductPrice)
+                </th>
+                <th>
+
+                </th>
+                <th>
+
+                </th>
+            </tr>
+
+            @foreach (var item in Model.Products)
+            {
+                <tr>
+
+
+                    <td>
+                        @Html.DisplayFor(modelItem => item.ProductName)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.Category.CategoryName)
+
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.ProductDescription)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.ProductPrice)
+                    </td>
+                    <td style="width:100px">
+                        @if (Request.IsAuthenticated && User.IsInRole("Administrator"))
+                        {
+                            @Html.ActionLink("Edit", "Edit", new { id = item.ProductID }, new { @class = "btn btn-warning btn-sm", @style = "width:90px" })
+
+                            @Html.ActionLink("Delete", "Delete", new { id = item.ProductID }, new { @class = "btn btn-danger btn-sm", @style = "width:90px" })
+
+                        }
+
+                        @if (this.User.IsInRole("Customer"))
+                        {
+                            @Html.ActionLink("Add to Cart", "Details", new { id = item.ProductID }, new { @class = "btn btn-success btn-sm" })
+                        }
+
+
+                    </td>
+                    <td>
+
+                        @if (item.ProductImageMappings != null && item.ProductImageMappings.Any())
+                        {
+                            <a href="@Url.Action("Details", new { id = item.ProductID})">
+                                <img src="@(Url.Content(Constants.ProductImagePath) + item.ProductImageMappings.OrderBy(pim => pim.ImageNumber).ElementAt(0).ProductImage.FileName)" height="220" width:auto>
+                            </a>
+                        }
+
+
+                    </td>
+
+
+                </tr>
+            }
+
+        </table>
+        <div>
+            Page @(Model.Products.PageCount < Model.Products.PageNumber ? 0 : Model.Products.PageNumber) of @Model.Products.PageCount
+            @Html.PagedListPager(Model.Products, page => Url.Action("Index", new { categoryPhrase = @Model.Category, Search = Model.Search, sortBy = @Model.SortBy, page }))
+        </div>
+    </div>
+
+

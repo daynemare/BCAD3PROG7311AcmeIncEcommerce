@@ -1,0 +1,40 @@
+﻿@model AcmeIncEcommerce.Models.ApplicationUser
+
+@{
+    ViewBag.Title = "My Details";
+}
+
+    <div class="jumbotron" style="margin-top:40px;">
+
+        <h2 style="margin-top: -20px;">@ViewBag.Title</h2>
+
+        <div>
+            <hr />
+            <dl class="dl-horizontal">
+                @Html.Partial("_UserDetailsPartial", Model)
+                <dt>
+                    Password
+                </dt>
+                <dd>
+                    @Html.ActionLink("Change your password", "ChangePassword")
+                </dd>
+            </dl>
+        </div>
+        <hr />
+        <p>
+            @Html.ActionLink("Edit", "Edit", new { id = Model.Id }, new { @class = "btn btn-warning" })
+        </p>
+
+        @if (this.User.IsInRole("Customer"))
+        {
+            <hr />
+            @Html.ActionLink("View my orders", "Index", "Orders")
+        }
+   
+
+
+
+
+    </div>
+
+

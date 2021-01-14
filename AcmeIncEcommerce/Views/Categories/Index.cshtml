@@ -1,0 +1,46 @@
+﻿@model IEnumerable<AcmeIncEcommerce.Models.Category>
+
+@{
+    ViewBag.Title = "Shop by Category";
+}
+
+    <div class="jumbotron" style="margin-top:40px;">
+        <h2 style="margin-top:-20px;">@ViewBag.Title</h2>
+
+        @if (Request.IsAuthenticated && User.IsInRole("Administrator"))
+        {
+            <p>
+                @Html.ActionLink("Create New", "Create")
+            </p>
+        }
+
+        <table class="table table-striped table-hover">
+            <tr>
+                <th>
+                    @Html.DisplayNameFor(model => model.CategoryName)
+                </th>
+                <th></th>
+            </tr>
+
+            @foreach (var item in Model)
+            {
+                <tr>
+                    <td>
+                        @Html.ActionLink(item.CategoryName, "Index", "Products", new { category = item.CategoryName }, null)
+                    </td>
+                    <td>
+                        @if (Request.IsAuthenticated && User.IsInRole("Administrator"))
+                        {
+                            @Html.ActionLink("Edit", "Edit", new { id = item.CategoryID }, new { @class = "btn btn-warning", @style = "width:80px; " })
+
+                            @Html.ActionLink("Delete", "Delete", new { id = item.CategoryID }, new { @class = "btn btn-danger", @style = "width:80px; " })
+                        }
+                    </td>
+                </tr>
+            }
+
+        </table>
+
+    </div>
+
+ 

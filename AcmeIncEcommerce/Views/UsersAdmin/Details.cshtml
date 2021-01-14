@@ -1,0 +1,45 @@
+﻿@model AcmeIncEcommerce.Models.ApplicationUser
+@{
+    ViewBag.Title = "Customer Details";
+}
+
+    <div class="jumbotron" style="margin-top:40px;">
+
+        <h2 style="margin-top: -20px;">@ViewBag.Title</h2>
+
+        <div>
+            <hr />
+            <dl class="dl-horizontal">
+                @Html.Partial("_UserDetailsPartial", Model)
+            </dl>
+        </div>
+        <div class="container">
+            <hr />
+            <div class="row">
+                <h4>Roles this user belongs to:</h4>
+            </div>
+            @if (ViewBag.RoleNames.Count == 0)
+            {
+                <hr />
+                <p>No roles found for this user</p>
+            }
+
+            @foreach (var item in ViewBag.RoleNames)
+            {
+                <div class="row">
+                    @item
+                </div>
+            }
+        </div>
+        <hr />
+        <p>
+            @Html.ActionLink("Edit", "Edit", new { id = Model.Id }, new { @class = "btn btn-warning" })
+            <br />
+
+
+        </p>
+
+        @Html.ActionLink("Back to List", "Index")
+    </div>
+
+    

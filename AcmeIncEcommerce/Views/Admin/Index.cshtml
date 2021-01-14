@@ -1,0 +1,35 @@
+﻿@{
+    ViewBag.Title = "Admin";
+}
+
+    <div class="jumbotron" style="margin-top:40px;">
+
+        <h2 style="margin-top: -20px;">@ViewBag.Title</h2>
+        <br />
+        <div class="container">
+            <div class="row">
+                @Html.ActionLink("Manage Images", "Index", "ProductImages")
+                <hr />
+            </div>
+          
+
+            <div class="row">
+                @Html.ActionLink("Manage Roles", "Index", "RolesAdmin")
+                <hr />
+            </div>
+         
+            <div class="row">
+                @Html.ActionLink("Manage Users", "Index", "UsersAdmin")
+                <hr />
+            </div>
+         
+            <div class="row">
+                @Html.ActionLink("View All Customer Orders", "Index", "Orders")
+            
+            </div>
+        </div>
+
+
+    </div>
+
+   

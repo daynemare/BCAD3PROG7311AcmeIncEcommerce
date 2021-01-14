@@ -1,0 +1,41 @@
+﻿@model IEnumerable<AcmeIncEcommerce.Models.ProductImage>
+
+@{
+    ViewBag.Title = "Product Images";
+}
+<div class="jumbotron" style="margin-top:40px;">
+    <h2 style="margin-top: -20px;">@ViewBag.Title</h2>
+
+    <p>
+        @Html.ActionLink("Upload New Product Images", "Upload")
+    </p>
+    <table class="table table-striped table-hover">
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.FileName)
+            </th>
+            <th></th>
+            <th></th>
+        </tr>
+
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>
+                    @Html.DisplayFor(modelItem => item.FileName)
+                </td>
+                <td>
+                    @if (!String.IsNullOrWhiteSpace(item.FileName))
+                    {
+                        <img src="@(Url.Content(Constants.ProductImagePath) + item.FileName)" style="height:200px; width:auto;">
+                    }
+                </td>
+                <td>
+                    @Html.ActionLink("Delete", "Delete", new { id = item.ID }, new { @class = "btn btn-danger btn-sm", @style = "width:90px" })
+
+                </td>
+            </tr>
+        }
+
+    </table>
+    </div>
